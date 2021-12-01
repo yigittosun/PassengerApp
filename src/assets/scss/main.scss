@@ -1,0 +1,263 @@
+body {
+    background-color: $fourth-color;
+}
+
+button {
+    cursor: pointer;
+    text-align: center;
+    outline: none;
+    margin-top: 10px;
+    letter-spacing: 0.5mm;
+    color: white;
+    font-weight: bold;
+    box-sizing: content-box;
+    font-family: cursive;
+    &.primary {
+        font-size: 16px;
+        background-color: #F2864B;
+        padding: 7px 12px;
+        border-radius: 16px;
+    }
+    &.secondary {
+        margin-top: 0px;
+        font-size: 12px;
+        background-color: $third-color;
+        padding: 3px 9px;
+        border-radius: 4px;
+    }
+    &.third {
+        font-size: 16px;
+        background-color: $fourth-color;
+        padding: 5px 12px;
+        border-radius: 8px;
+        color: $first-color;
+    }
+}
+
+input {
+    margin-top: 5px;
+    border: 3px solid #497487;
+    border-radius: 5px;
+    line-height: 20px;
+    padding: 5px 12px;
+    outline: $first-color;
+}
+
+h2 {
+    text-align: center;
+    font-size: 20px;
+    color: $first-color;
+    letter-spacing: 0.5mm;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.container {
+    max-width: 1180px;
+    padding: 30px;
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+}
+
+.router-link-exact-active {
+    font-weight: bold;
+}
+
+.warn {
+    font-size: 12px;
+    margin: 5px 3px;
+    color: $third-color;
+}
+
+.warn::before {
+    content: "*";
+}
+
+.error {
+    font-size: 16px;
+    margin-top: 15px;
+    color: rgb(216, 11, 11);
+}
+
+.error::before {
+    content: "- ";
+}
+
+// Passengers Table
+.actions {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.table {
+    padding: 10px;
+    .head {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        padding: 10px;
+        background-color: #35667c;
+        div {
+            justify-self: center;
+            align-self: center;
+            color: white;
+        }
+    }
+    .row {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        padding: 24px;
+        background-color: azure;
+        opacity: 0.9;
+        box-shadow: 2px 0px 6px 4px #e3570a;
+        margin-bottom: 16px;
+        div {
+            justify-self: center;
+            align-self: center;
+        }
+    }
+    .deletePassenger:hover {
+        cursor: pointer;
+    }
+    @media (max-width: $mobileBreakpointMenu) {
+        display: none;
+    }
+}
+
+.sortButtons {
+    display: none;
+    @media (max-width: $mobileBreakpointMenu) {
+        display: block;
+        button {
+            margin: 15px 15px 0 0;
+        }
+    }
+}
+
+// Create page
+.flex-2 {
+    display: flex;
+    justify-content: space-around;
+    @media (max-width: $mobileBreakpointOneA) {
+        flex-direction: column;
+    }
+}
+
+.create-form {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    border: 4.5px solid $second-color;
+    border-radius: 5px;
+    height: max-content;
+    margin-right: 20px;
+    background-color: white;
+    opacity: 0.9;
+    @media (max-width: $mobileBreakpointOneA) {
+        margin-right: 0px;
+    }
+    h4,
+    h5 {
+        margin-bottom: 10px;
+        text-align: center;
+        color: $second-color;
+    }
+    .lat-lng {
+        display: flex;
+        justify-content: center;
+        input {
+            width: 50%;
+        }
+        input:first-child {
+            margin-right: 5px;
+        }
+    }
+}
+
+.maps-frame {
+    border: 8.5px solid #35667c;
+    border-radius: 5px;
+    max-width: 700px;
+    width: 100%;
+    height: 32em;
+    box-shadow: #35667c 38px 50px 52px -20px, #35667c 0px 30px 60px -30px, #35667c 0px 0px 10px 5px;
+}
+
+.information {
+    margin: 10px 0px;
+    p {
+        margin-top: 10px;
+    }
+    button {
+        margin: 10px 0 20px;
+    }
+    .red {
+        font-weight: bold;
+        color: red;
+    }
+}
+
+// Detail Page
+.detail {
+    margin-top: 30px;
+    justify-content: flex-start;
+    .info {
+        margin-left: 20px;
+        @media (max-width: $mobileBreakpointOneA) {
+            margin-left: 0px;
+        }
+        p {
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: $second-color;
+        }
+    }
+    @media (max-width: $mobileBreakpointOneA) {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+}
+
+// Map
+.google-map {
+    max-width: 700px;
+    width: 100%;
+    height: 32em;
+    @media (max-width: $mobileBreakpointOneA) {
+        margin-top: 20px;
+    }
+}
+
+// Card 
+.cards {
+    display: none;
+    @media (max-width: $mobileBreakpointMenu) {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+}
+
+.card {
+    display: flex;
+    justify-content: space-around;
+    border: 1px solid $second-color;
+    padding: 15px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    width: 300px;
+    height: auto;
+    border-radius: 8px;
+    background: azure;
+    .heading,
+    .body {
+        display: flex;
+        flex-direction: column;
+        p,
+        div {
+            margin-bottom: 15px;
+        }
+    }
+}

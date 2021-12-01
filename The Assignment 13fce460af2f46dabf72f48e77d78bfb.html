@@ -1,0 +1,650 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>The Assignment</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="13fce460-af2f-46da-bf72-f48e77d78bfb" class="page sans"><header><img class="page-cover-image" src="The%20Assignment%2013fce460af2f46dabf72f48e77d78bfb/Screen_Shot_2020-07-27_at_09.02.06.png" style="object-position:center 50%"/><h1 class="page-title">The Assignment</h1></header><div class="page-body"><p id="3d7e062d-a3b7-434f-a4fd-f5dc1f86174f" class="block-color-gray">Front-end Developers</p><h1 id="690a4921-a92d-4b40-b53b-e3799435b6bf" class="">Introduction</h1><p id="1287f59d-7c7f-4df6-976c-c367ec940725" class="">Congratulations for making it this far! </p><p id="faca0dec-00d3-4af6-9068-a5af556974ba" class="">
+We believe that the best way to gauge a person’s skills is to inspect their work on a specific project so we have formulated an assignment to test if your technical knowledge meets our business expectations. The assignment gives the person a chance to show their understanding of the area they are/want to specialize in, regardless of their social or personal skills that could interfere during an in-person interview.
+
+You can directly reach us for your questions. Our Software Team Lead is Egemen Yildiz (<a href="mailto:egemen@voltlines.com">egemen@voltlines.com</a>), let him know if you have something is not understood well.</p><h1 id="9b4a119e-af21-40c0-9235-96385826a239" class="">Case</h1><hr id="2773e6a8-d219-4d23-b6c8-93ecc9ecefb6"/><p id="93d16043-9194-4e6f-9bc7-da9d48d3fdb7" class="">In this case study, user expects to create, view and interact with a routing solution from point A (<code>origin</code>) to point B (<code>destination</code>) including several passengers and their pick-ups. Given an array of <code>passengerInfo</code> objects, we expect your finished project to cover <a href="#expectations">expectations</a> and maybe <a href="#more">more</a>.</p><h1 id="cdd425a0-7f95-4176-ae9a-f9828eaec29d" class="">Conditions</h1><hr id="8dc5d16b-a916-453c-84f8-f469596b9264"/><ul id="f4ff4b1c-62e8-44cc-90a6-d26d866ecb7a" class="bulleted-list"><li>We expect you to use <a href="https://cloud.google.com/maps-platform">Google Maps Platform</a> to do map related operations  </li></ul><ul id="dee838e5-c9bf-484f-a040-0cbbfe4f36e5" class="bulleted-list"><li><a href="https://vuejs.org/">Vue.js</a> is heavily used in most of our products currently but you are free to use any framework of your choice</li></ul><ul id="b3aeecb9-fdeb-4110-ac89-e02be4357210" class="bulleted-list"><li>You have 7 days to finalize your assignment</li></ul><ul id="f7ad7055-f299-413a-9fb4-e867360d66a4" class="bulleted-list"><li>Please do not use any company related assets, names or wordings in your project</li></ul><h1 id="c21cc8f4-1bfc-4090-b5e3-c78aec4069a3" class="">Definitions</h1><hr id="1c9282c3-0394-49fb-863c-6b6172511365"/><pre id="7ba79bfd-31ca-4600-8eed-11fab150661d" class="code"><code>const pickupLocation = {
+	lat: 0.00,
+	lng: 0.00,
+};
+
+const passengerInfo = {
+	name: &#x27;Dummy&#x27;,
+	pickUpPoint: pickupLocation, // location object
+};
+
+const enrichedPassengerInfo = {
+	...passengerInfo, // existing passengerInfo
+	pickUpPointOrder: 0,
+	tripDuration: 0,
+};
+
+const passengers = [
+	passengerInfo,
+	...remainingPassengers, 
+];</code></pre><h1 id="7992fc36-743c-4165-8a7e-897fd702fb7c" class=""><a name="input"></a>Input</h1><p id="6758eb9e-fbe7-4122-a382-6dbcf089b233" class="">The user should have the ability to input an array of <code>passengerInfo</code> objects. This can be a long text-area which the user can paste test <code>passengerInfo</code> objects as text, or any kind of input you would provide for the user as long as it is structured in the same way. Including a request/response cycle (even if it&#x27;s mock data) to fetch user input is the preferred approach.   </p><h1 id="61f6f3ff-6bff-4faa-9274-d006f892433e" class=""><a name="expectations"></a>Technical &amp; Visual Expectations</h1><hr id="14f6d912-4e00-47e4-9760-2012451b7af3"/><p id="4e93dee9-9827-4b21-81f3-42c3d2ff3d4d" class="">Below are our expectations and We expect you to visualize at least 3 components that are showing:</p><ol id="169596e7-9d73-4dda-b0ac-de9c7b2a4db9" class="numbered-list" start="1"><li>Map View</li></ol><ol id="fbc515be-1d33-4299-b83e-f54c31503907" class="numbered-list" start="2"><li>Table View</li></ol><ol id="84aa8d11-434c-4e45-907a-d0149f0168ea" class="numbered-list" start="3"><li>Route Detail View</li></ol><p id="07b57fc5-6f5a-432e-b18f-4527b0648fb3" class="">Please complete as much items as you can within the given time.</p><h3 id="acfb1638-ccc3-4c7b-ac8c-ef357728426b" class="">Passenger Enrichment &amp; Information</h3><p id="283a2453-d5fb-4046-93ba-8a231378000f" class="">We expect you to enrich <a href="#input">input</a> data with the following fields: </p><ul id="5351f5a6-1201-48da-9c2d-e962d723a965" class="bulleted-list"><li><code>pickUpPointOrder</code> (integer) order of passenger&#x27;s pick-up on route</li></ul><ul id="bc71c0d3-9cdd-46d8-a925-568c285a36cd" class="bulleted-list"><li><code>tripDuration</code> (number) passenger&#x27;s trip duration from her <code>pickUpPoint</code> to <code>destination</code> in minutes</li></ul><p id="a1895712-8a97-45c6-9a16-442fd92fa5ef" class="">
+With enriched data, the user should be able to,</p><ul id="dfc846ad-0c60-49c8-a257-24c314e4e3f8" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">see (static, not draggable) markers for passenger&#x27;s <code>pickUpPoint</code></span></li></ul><ul id="8047a5f3-41f9-4d83-99ea-53ad5099f96d" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">view, sort &amp; filter items of a table which shows <code>passengerInfo.name</code>, <code>tripDuration</code>, <code>pickUpPointOrder</code></span></li></ul><h3 id="48797265-08a0-4e24-801a-6a27c3d17817" class="">Route Information</h3><p id="4d0e1635-095d-4513-93b8-cf0be3371eef" class="">The user should be able to,</p><ul id="ee12eff1-5ddc-453c-975f-b560d39093b9" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">put a marker on the map as <code>origin</code></span></li></ul><ul id="cffa8ace-92de-4d05-9918-c47b586c4951" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">put a marker on the map as <code>destination</code></span></li></ul><ul id="1011650d-f59d-4354-bf82-3040122b5895" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">see polyline between <code>origin</code> &amp; <code>destination</code> of route</span></li></ul><ul id="090439b5-e302-4539-814e-9490b1da62c4" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">total route distance (from <code>origin</code> to <code>destination</code>) in kilometers</span></li></ul><ul id="d6f7f9f4-5c83-469b-8e85-61cad13affee" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">total route duration (from <code>origin</code> to <code>destination</code>) in hours</span></li></ul><ul id="b8da2194-f800-444c-ae2a-5b03e66a70cd" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">average of passengers&#x27; <code>tripDuration</code></span></li></ul><h3 id="ce640c0e-f54a-4399-bef2-45436897d31e" class="">Validations</h3><p id="629dc37a-4045-4fc6-ae95-6b53aea93ac3" class="">The user should be informed with a warning message pop-up when following validations didn&#x27;t pass:</p><ul id="b948b164-c297-4a74-9cc6-8a8272306710" class="bulleted-list"><li>Route duration from start to finish is over 2 hours</li></ul><ul id="09136f69-9680-4875-947b-aa1669511091" class="bulleted-list"><li>Input has passengers more than 9</li></ul><h1 id="d51f3bc2-db00-45fb-ae80-c8d3b66237d2" class=""><a name="more"></a>Wouldn&#x27;t Hurt</h1><hr id="3211ba69-ca8a-46ed-8f9d-3851594887f3"/><ul id="ae1d5a03-667e-466c-b32f-7a34bf3d21b8" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Including a readme file in</span></li></ul><ul id="ada4f2ac-c772-4e50-8ec7-dd3496396219" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Having a code linter configuration</span></li></ul><ul id="4c9100cc-89a9-4dfc-89a8-e44052567035" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">VCS</span></li></ul><ul id="5ef9c1ff-e7e3-4b04-881a-d9f252053430" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Including test(s)</span></li></ul><ul id="7088c025-8376-43e9-a462-5a03e2a69d53" class="toggle"><li><details open=""><summary>Advanced</summary><ul id="c9cf9275-97dc-4bd9-9791-7f4431959d8b" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Containerizing your project</span></li></ul></details></li></ul><h1 id="18813ee1-c515-4ee1-b568-271b0fc3b631" class="">Helpful links</h1><hr id="8b1436ed-8add-4cff-bb4e-8ae6cde15c24"/><figure id="d623593f-34ef-4a50-9026-48305d8e9059"><a href="https://www.voltlines.com/kalite-politikamiz/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Volt Lines - Kalite Politikamız</div><div class="bookmark-description">Personel taşımacılığı hizmetinde bulunduğumuz kurumların sektörel gelişimlerini de göz önünde bulundurarak, ilkeli, kaliteli, tüm sektörleri dikkate alan hizmet anlayışı içerisinde, kurmuş olduğumuz kalite yönetim sistemini sürekli geliştirmeyi, çalışanların aktif katılımını ve memnuniyetini sağlamayı, yapılan her hizmette kalite öncelikli olmak üzere yapılan hataları zamanında değerlendirerek minimum seviyeye çekmeyi, müşteri memnuniyet oranını üst düzeye çıkarmayı, tüm tedarikçilerimiz ile işbirliği içerisinde birlikte çalışmayı taahhüt etmiştir.</div></div><div class="bookmark-href"><img src="https://www.voltlines.com/wp-content/uploads/2019/10/favicon.png" class="icon bookmark-icon"/>https://www.voltlines.com/kalite-politikamiz/</div></div><img src="https://www.voltlines.com/wp-content/uploads/2019/10/img@driver-training-1.jpg" class="bookmark-image"/></a></figure><figure id="66e0e03a-2cad-4175-aa6c-783605da58d3"><a href="https://cloud.google.com/maps-platform" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Geo-location APIs | Google Maps Platform | Google Cloud</div><div class="bookmark-description">Google is committed to advancing racial equity for Black communities. See how. Explore where real-world insights and immersive location experiences can take your business Build with reliable, comprehensive data for over 200 countries and territories. Count on accurate, real-time location information. Scale confidently, backed by our infrastructure. Learn about our latest products.</div></div><div class="bookmark-href"><img src="https://www.gstatic.com/devrel-devsite/prod/vbf66214f2f7feed2e5d8db155bab9ace53c57c494418a1473b23972413e0f3ac/cloud/images/favicons/onecloud/favicon.ico" class="icon bookmark-icon"/>https://cloud.google.com/maps-platform</div></div><img src="https://cloud.google.com/images/social-icon-google-cloud-1200-630.png" class="bookmark-image"/></a></figure><figure id="9c4b8864-2b25-46d6-b9fb-cb345eae642d"><a href="https://vuejs.org/v2/guide/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Introduction - Vue.js</div><div class="bookmark-description">Vue.js - The Progressive JavaScript Framework</div></div><div class="bookmark-href"><img src="https://vuejs.org/images/logo.png" class="icon bookmark-icon"/>https://vuejs.org/v2/guide/</div></div><img src="https://vuejs.org//images/logo.png" class="bookmark-image"/></a></figure></div></article></body></html>

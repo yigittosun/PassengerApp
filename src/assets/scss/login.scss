@@ -1,0 +1,54 @@
+.login-page {
+    display: flex;
+    margin-top: 14rem;
+}
+
+.login-form {
+    padding-top: 1rem;
+    margin: auto;
+    height: 42vh;
+    border-radius: 112px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $third-color;
+    h2 {
+        margin: 36px 0;
+        letter-spacing: 0.4mm;
+        font-family: cursive;
+    }
+    input {
+        margin-bottom: 25px;
+        width: 50%;
+    }
+    button {
+        width: 50%;
+    }
+    .info {
+        padding: 30px;
+    }
+    @media (max-width: $mobileBreakpointOneB) {
+        justify-content: center;
+        padding-bottom: 2rem;
+    }
+    @media (max-width: $mobileBreakpointOneC) {
+        justify-content: center;
+        padding-bottom: 5rem;
+        margin-top: -6rem;
+    }
+    @media (max-width: $mobileBreakpointOneD) {
+        justify-content: center;
+        padding-bottom: 5rem;
+        margin-top: -6rem;
+    }
+}
+
+.login-image {
+    width: calc(100% - 400px);
+    img {
+        width: 100%;
+        height: 100vh;
+        object-fit: cover;
+    }
+}

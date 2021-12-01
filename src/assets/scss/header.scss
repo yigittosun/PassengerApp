@@ -1,0 +1,35 @@
+.header {
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 5px;
+        @media (max-width: $mobileBreakpointOneB) {
+            justify-content: center;
+        }
+    }
+    background-color: $fifth-color;
+    color: $third-color;
+    .logo {
+        max-width: 100px;
+        img {
+            width: 100%;
+            height: auto;
+        }
+        @media (max-width: $mobileBreakpointOneB) {
+            display: none;
+        }
+    }
+    .menu {
+        ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: cursive;
+            a {
+                margin-right: 10px;
+                color: $third-color;
+            }
+        }
+    }
+}
