@@ -11,7 +11,7 @@ Vue.use(Notifications);
 
 Vue.use(VueGoogleMaps, {
     load: {
-        key: "AIzaSyB06JC1twOIqGfxJLpwqXWtwHzZItZVgts",
+        key: "Here come Api Key",
         installComponents: true,
         region: "TR",
         language: "en",
